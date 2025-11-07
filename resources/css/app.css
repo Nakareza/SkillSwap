@@ -1,0 +1,360 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* app.css */
+
+/* 1. Reset Dasar dan Pengaturan Global */
+/* ======================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Sistem Desain: Warna */
+    --color-bg-hero-start: #3d3a8e;
+    --color-bg-hero-end: #f97b5d;
+    --color-primary-dark: #2D2F6A;
+    --color-card-blue: #4A60E3;
+    --color-card-pink-bg: rgba(244, 162, 153, 0.1);
+    --color-text-light: #FFFFFF;
+    --color-text-dark: #333333;
+    --color-text-subtle: #555555;
+    --color-button-main: #F45A6A;
+    --color-button-secondary: #E3E8FF;
+    --color-button-secondary-text: #4A60E3;
+
+    /* Sistem Desain: Tipografi */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Sistem Desain: Spasi dan Ukuran */
+    --spacing-xs: 4px;
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 64px;
+    --container-width: 1140px;
+
+    /* Sistem Desain: Efek */
+    --border-radius-soft: 8px;
+    --border-radius-medium: 16px;
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 25px rgba(74, 96, 227, 0.2);
+    --transition-fast: 0.2s ease-in-out;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: #f9fafb;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. Header dan Navigasi */
+/* ======================================== */
+.main-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: var(--spacing-l) 0;
+}
+
+.main-nav {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.logo svg {
+    margin-right: var(--spacing-s);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.nav-links a:hover {
+    color: var(--color-text-light);
+}
+
+.nav-cta {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-text-light);
+    padding: var(--spacing-s) var(--spacing-m);
+    border-radius: var(--border-radius-soft);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color var(--transition-fast);
+}
+
+.nav-cta:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 3. Hero Section */
+/* ======================================== */
+.hero-section {
+    background-image: linear-gradient(135deg, var(--color-bg-hero-start) 0%, var(--color-bg-hero-end) 100%);
+    color: var(--color-text-light);
+    padding: 180px 0 100px 0;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: var(--spacing-xxl);
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Tipografi fluida */
+    line-height: 1.2;
+    margin-bottom: var(--spacing-m);
+    max-width: 12ch; /* Batasi lebar teks untuk keterbacaan */
+}
+
+.hero-content p {
+    font-size: 1.125rem;
+    max-width: 45ch;
+    margin-bottom: var(--spacing-l);
+    opacity: 0.9;
+}
+
+.hero-cta-button {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--color-primary-dark);
+    padding: var(--spacing-m) var(--spacing-xl);
+    border-radius: var(--border-radius-soft);
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.hero-cta-button:hover {
+    transform: translateY(-2px);
+    background-color: #fff;
+}
+
+.hero-3d-container {
+    min-height: 400px;
+    width: 100%;
+}
+
+/* 4. Bagian Testimonial */
+/* ======================================== */
+.testimonials-section {
+    padding: var(--spacing-xxl) 0;
+}
+
+.testimonials-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+    text-align: center;
+}
+
+.testimonials-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-s);
+    color: var(--color-primary-dark);
+}
+
+.testimonials-header p {
+    font-size: 1.125rem;
+    color: var(--color-text-subtle);
+    max-width: 50ch;
+    margin: 0 auto var(--spacing-xxl) auto;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-l);
+    text-align: left;
+}
+
+.testimonial-card {
+    padding: var(--spacing-l);
+    border-radius: var(--border-radius-medium);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: var(--shadow-soft);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-pink {
+    background-color: var(--color-card-pink-bg);
+}
+
+.card-blue {
+    background-color: var(--color-card-blue);
+    color: var(--color-text-light);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-m);
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+}
+
+.card-body h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-s);
+}
+
+.card-blue.card-body h3,
+.card-blue.card-body p {
+    color: var(--color-text-light);
+}
+
+.card-body p {
+    margin-bottom: var(--spacing-l);
+    color: var(--color-text-subtle);
+}
+
+.card-link {
+    background-color: var(--color-button-secondary);
+    color: var(--color-button-secondary-text);
+    padding: var(--spacing-s) var(--spacing-m);
+    border-radius: var(--border-radius-soft);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.card-blue.card-link {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--color-card-blue);
+}
+
+.testimonials-footer {
+    margin-top: var(--spacing-xxl);
+}
+
+.main-cta-button {
+    display: inline-block;
+    background-color: var(--color-button-main);
+    color: var(--color-text-light);
+    padding: var(--spacing-m) var(--spacing-xl);
+    border-radius: var(--border-radius-soft);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.125rem;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.main-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(244, 90, 106, 0.4);
+}
+
+/* 5. Bagian CTA Terakhir dan Footer */
+/* ======================================== */
+.final-cta-section {
+    /* Gaya untuk bagian ini bisa ditambahkan sesuai kebutuhan */
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.final-cta-container h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-primary-dark);
+}
+
+.main-footer {
+    padding: var(--spacing-l);
+    text-align: center;
+    color: var(--color-text-subtle);
+    font-size: 0.9rem;
+}
+
+/* 6. Media Queries untuk Desain Responsif */
+/* ======================================== */
+
+/* Tablet (lebar 768px ke atas) */
+@media (min-width: 768px) {
+   .testimonials-grid {
+        /* Mengubah menjadi 2 kolom di tablet, dengan kolom tengah lebih menonjol */
+        grid-template-columns: 1fr 1.2fr 1fr;
+        align-items: center; /* Menyelaraskan kartu secara vertikal */
+    }
+
+   .testimonial-card.card-blue {
+        transform: scale(1.05); /* Membuat kartu tengah sedikit lebih besar */
+    }
+
+   .testimonial-card.card-blue:hover {
+        transform: scale(1.1) translateY(-8px);
+    }
+}
+
+/* Desktop (lebar 1024px ke atas) */
+@media (min-width: 1024px) {
+   .hero-container {
+        grid-template-columns: 1fr 1fr; /* Tata letak 2 kolom untuk hero */
+        text-align: left;
+    }
+
+   .hero-3d-container {
+        min-height: 600px;
+    }
+
+   .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr); /* Tata letak 3 kolom untuk testimonial */
+    }
+}
